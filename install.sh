@@ -16,7 +16,7 @@ ADMIN_PASSWORD=""
 # Ask for domain
 while true; do
     read -p "Enter domain name: " DOMAIN_NAME
-    if [ -n "$DOMAIN_NAME"]; then
+    if [ -n "$DOMAIN_NAME" ]; then
         break
     fi
 done
