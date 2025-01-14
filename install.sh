@@ -13,19 +13,10 @@ SSL_CONF="/etc/apache2/sites-available/000-default-le-ssl.conf"
 ZM_CONF="/etc/apache2/conf-enabled/zoneminder.conf"
 ADMIN_PASSWORD=""
 
-validate_domain_name() {
-    local domain=$1
-    if [[ ! $domain =~ ^[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$ ]]; then
-        echo "Error: Invalid domain name"
-        return 1
-    fi
-    return 0
-}
-
 # Ask for domain
 while true; do
     read -p "Enter domain name: " DOMAIN_NAME
-    if validate_domain_name "$DOMAIN_NAME"; then
+    if [ -n "$DOMAIN_NAME"]; then
         break
     fi
 done
