@@ -128,6 +128,21 @@ mysql -u root -p="" -e 'USE zm; UPDATE Config set Value=0 where Name="ZM_SHOW_PR
 
 yes | zmupdate.pl
 
+### - Branding Configuration - ###
+echo -e "\e[1;42m Setting web title branding \e[0m"
+mysql -u root -p="" -e "USE zm; UPDATE Config set Value='MDU Watch' where Name='ZM_WEB_TITLE';"
+
+echo -e "\e[1;42m Setting web title prefix \e[0m"
+mysql -u root -p="" -e "USE zm; UPDATE Config set Value='MDU-W' where Name='ZM_WEB_TITLE_PREFIX';"
+
+echo -e "\e[1;42m Setting home url \e[0m"
+mysql -u root -p="" -e "USE zm; UPDATE Config set Value='https://mdusolutions.com' where Name='ZM_HOME_URL';"
+
+echo -e "\e[1;42m Setting home content title \e[0m"
+mysql -u root -p="" -e "USE zm; UPDATE Config set Value='MDU Watch' where Name='ZM_HOME_CONTENT';"
+
+echo -e "\e[1;42m Disabling home about page \e[0m"
+mysql -u root -p="" -e "USE zm; UPDATE Config set Value=0 where Name='ZM_HOME_ABOUT';"
 
 ### - SSL Configuration - ###
 
@@ -159,3 +174,4 @@ sed -i "34r $HEADERS_CONF" "$SSL_CONF"
 
 # Run config test
 apachectl configtest
+
